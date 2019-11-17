@@ -1,0 +1,25 @@
+POST http://localhost:8002/demo-service/api/customer/create
+Accept: application/json
+Cache-Control: no-cache
+Content-Type:application/json
+
+{
+"name": "Ivanov",
+"salary": {
+  "amount": "10000.90"
+  }
+}
+
+###
+
+GET http://localhost:8002/demo-service/api/customer/
+
+###
+
+POST http://localhost:8002/demo-service/api/customer/2/update-salary?salary=20000.80
+
+###
+
+DELETE http://localhost:8002/demo-service/api/customer/
+
+###
