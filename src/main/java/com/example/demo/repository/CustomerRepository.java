@@ -1,8 +1,8 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.Customer;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RestResource(exported = false)
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
-
+  @Override
+  List<Customer> findAll();
 }

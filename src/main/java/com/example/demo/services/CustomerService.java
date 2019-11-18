@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.entity.Customer;
 import com.example.demo.repository.CustomerRepository;
 import java.math.BigDecimal;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +31,7 @@ public class CustomerService {
     return customerRepository.save(customer);
   }
 
-  public Iterable<Customer> listAll() {
+  public List<Customer> listAll() {
     return customerRepository.findAll();
   }
 
