@@ -10,16 +10,15 @@ Content-Type:application/json
   }
 }
 
-###
-
+### list customers
 GET http://localhost:8002/demo-service/api/customer/
 
-###
+### update salary for customer with id = 1, anonymous
+POST http://localhost:8002/demo-service/api/customer/1/update-salary?salary=20000.80
 
-POST http://localhost:8002/demo-service/api/customer/2/update-salary?salary=20000.80
+### update salary for customer with id = 1, USER:USER
+POST http://localhost:8002/demo-service/api/customer/1/update-salary?salary=40000.80
+Authorization: Basic VVNFUjpVU0VS
 
-###
-
+### delete all users
 DELETE http://localhost:8002/demo-service/api/customer/
-
-###

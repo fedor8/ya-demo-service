@@ -52,6 +52,7 @@ public class CustomerController {
 
   @PostMapping("/{id}/update-salary")
   @ResponseBody
+  @Transactional
   public HttpEntity<CustomerDto> update(@RequestParam @NotNull BigDecimal salary,
       @PathVariable("id") Long customerId) {
     final Customer customer = customerService.updateSalary(customerId, salary);
@@ -69,6 +70,7 @@ public class CustomerController {
 
   @DeleteMapping("/")
   @ResponseBody
+  @Transactional
   public void deleteAllCustomers() {
     customerService.deleteAll();
   }

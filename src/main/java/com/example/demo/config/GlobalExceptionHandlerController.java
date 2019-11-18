@@ -1,5 +1,7 @@
 package com.example.demo.config;
 
+import java.util.HashMap;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ public class GlobalExceptionHandlerController {
   @ResponseBody
   protected ResponseEntity<Object> handleInvalidRequest(Exception e, WebRequest request){
     log.error(e.getMessage(), e);
-    return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+    var result = new HashMap<String, Object>();
+    result.put("error", e.getClass().getCanonicalName());
+    result.put("message", e.getMessage());
+    return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }

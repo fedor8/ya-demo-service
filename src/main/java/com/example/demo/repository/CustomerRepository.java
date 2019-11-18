@@ -1,11 +1,16 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.Customer;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.RepositoryDefinition;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by fedor.dydykin on 16.11.2019.
  */
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+@Repository
+@RestResource(exported = false)
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
 }
